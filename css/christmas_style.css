@@ -115,6 +115,72 @@ font-family:lights,fantasy,sans-serif;
 }
     
 
+    /* ========================================
+MEDIA QUERIES!!!!!!!!!!!!
+======================================== */
+/* Small screens like phones (width up to 600px) */
+@media (max-width: 600px) {
+    #countdown {
+        font-size: 40px; /* Reduce size of countdown text */
+    }
+
+    #message {
+        font-size: 50px; /* Adjust the message size */
+    }
+
+    body {
+        margin-top: 50px; /* Adjust layout for smaller screens */
+    }
+}
+
+/* Medium screens like tablets (width between 601px and 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+    #countdown {
+        font-size: 60px; /* Medium size for countdown */
+    }
+
+    #message {
+        font-size: 70px; /* Adjust the message size */
+    }
+
+    body {
+        margin-top: 80px; /* Adjust layout */
+    }
+}
+
+/* Larger screens like laptops (width between 769px and 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #countdown {
+        font-size: 70px; /* Slightly larger size */
+    }
+
+    #message {
+        font-size: 90px;
+    }
+
+    body {
+        margin-top: 100px;
+    }
+}
+
+/* Extra-large screens (PCs, width above 1024px) */
+@media (min-width: 1025px) {
+    #countdown {
+        font-size: 80px; /* Default font size */
+    }
+
+    #message {
+        font-size: 100px;
+    }
+
+    body {
+        margin-top: 150px;
+    }
+}
+    
+    
+    
+    
     
     
     
