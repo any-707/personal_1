@@ -56,7 +56,7 @@ font-family:lights,fantasy,sans-serif;
 /* Only apply animation to the number, not the word "seconds" */
 #countdown .seconds-number {
     display: inline-block;
-    font-size: 44px;
+    font-size: 80px;
     font-weight: bold;
     animation: bounce 0.3s ease-in-out;
 }
