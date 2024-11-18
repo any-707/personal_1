@@ -1,0 +1,122 @@
+
+@font-face {
+    font-family: snowtop;
+    src: url('Santa_Air_Mail.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: lights;
+    src: url('Christmas_Tree_Lights.otf') format('opentype');
+}
+
+
+
+
+html {
+ height: 100%;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient( 
+#801919,
+#d15252,
+#71906e,      
+#44a667 
+  );   
+}
+
+body{ text-align: center;
+margin-top: 100px;
+ text-align: center;
+margin-top: 170px;    
+overflow: hidden; /* Prevent scrollbars */
+    
+}
+
+
+#countdown {
+font-size: 42px;
+color: white;
+margin-top:50px;
+    font-family:snowtop,fantasy,sans-serif;
+     text-transform: uppercase;
+}
+    
+
+    #message {
+color: floralwhite;    
+font-size: 200px;
+font-family:lights,fantasy,sans-serif;
+
+        }
+
+
+
+
+
+
+/* Only apply animation to the number, not the word "seconds" */
+#countdown .seconds-number {
+    display: inline-block;
+    font-size: 44px;
+    font-weight: bold;
+    animation: bounce 0.3s ease-in-out;
+}
+
+#countdown .seconds {
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+/* Bouncing animation for numbers */
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2) translateY(-10px);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+    
+    
+/* for snowflake animation*/
+
+
+#snow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Snow won't block clicks */
+    z-index: 9999;
+}
+
+.snowflake {
+    position: absolute;
+    top: -50px; /* Start slightly off-screen */
+    font-size: 1rem;
+    color: white;
+    animation: fall linear infinite;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+    
+
+    
+    
+    
+    
+    
