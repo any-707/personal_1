@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="html_container">
+
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<title>Christmas Countdown</title>
+	
+	<link rel="stylesheet" href="css/christmas_style.css">	
+    
+	
+
+</head>
+
+
+<body>
+
+  <div id="container">
+
+  </div><!-- close "container" -->
+    
+    
+    
+    <div id="countdown">Calculating...</div>
+    <div id="message"> Until Christmas</div>
+
+    <script src="script.js"></script>
+    
+ <div id="snow-container"></div>
+
+
+    
+    
+    
+    
+    
+  
+  <!-- Link to jQuery on Google CDN-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  
+  
+  <!-- Write your jQuery code inside of the .ready() function below -->
+  <script>
+      $(document).ready(function () {
+    const targetDate = new Date('December 25, 2024 00:00:00').getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const timeLeft = targetDate - now;
+
+        if (timeLeft <= 0) {
+            $("#message").text("Merry Christmas!");
+            $("#countdown").text("");
+            clearInterval(interval); // Stop the countdown once the target date is reached
+            return;
+        }
+
+        // Calculate time components
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Helper function for singular/plural
+        const formatUnit = (value, unit) => (value === 1 ? `${value} ${unit}` : `${value} ${unit}s`);
+
+        // Update the display based on the remaining time
+        if (days > 0) {
+            $("#message").text("FOR CHRISTMAS");
+            $("#countdown").html(`${formatUnit(days, 'day')}, ${formatUnit(hours, 'hour')}, ${formatUnit(minutes, 'minute')}, <span class="seconds"><span class="seconds-number">${seconds}</span> seconds</span>`);
+        } else if (hours > 0) {
+            $("#message").text("Hours left until");
+            $("#countdown").html(`${formatUnit(hours, 'hour')}, ${formatUnit(minutes, 'minute')}, <span class="seconds"><span class="seconds-number">${seconds}</span> seconds</span>`);
+        } else if (minutes > 0) {
+            $("#message").text("Minutes left until");
+            $("#countdown").html(`${formatUnit(minutes, 'minute')}, <span class="seconds"><span class="seconds-number">${seconds}</span> seconds</span>`);
+        } else {
+            $("#message").text("Seconds left until");
+            $("#countdown").html(`<span class="seconds"><span class="seconds-number">${seconds}</span> seconds</span>`);
+        }
+
+        // Re-trigger the animation for the numeric part of seconds
+        const secondsNumberElement = $(".seconds-number");
+        secondsNumberElement.removeClass("bounce"); // Reset animation
+        void secondsNumberElement.offset(); // Force reflow
+        secondsNumberElement.addClass("bounce");
+    }
+
+    // Initial update
+    updateCountdown();
+
+    // Update every second
+    const interval = setInterval(updateCountdown, 1000);
+          
+          
+
+});
+
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      
+    
+// Number of snowflakes
+const snowflakeCount = 100;
+
+// Characters to use as snowflakes
+const snowflakeChars = ["❄", "❅", "❆",  "*"];
+
+const container = document.getElementById("snow-container");
+
+function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+
+    // Randomize snowflake character
+    snowflake.textContent = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+
+    // Randomize size and position
+    const size = Math.random() * 40 + 20; // Size between 20px and 40px
+    snowflake.style.fontSize = `${size}px`;
+
+    snowflake.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+
+    // Randomize fall duration and delay
+    const duration = Math.random() * 5 + 5; // Between 5 and 10 seconds
+    snowflake.style.animationDuration = `${duration}s`;
+    snowflake.style.animationDelay = `${Math.random() * 5}s`; // Delay up to 5 seconds
+
+    container.appendChild(snowflake);
+
+    // Remove the snowflake after it falls
+    setTimeout(() => {
+        container.removeChild(snowflake);
+    }, duration * 1000);
+}
+
+// Create multiple snowflakes initially
+for (let i = 0; i < snowflakeCount; i++) {
+    createSnowflake();
+}
+
+// Add more snowflakes over time
+setInterval(createSnowflake, 300);
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+</script>
+
+</body>
+	
+</html> 
