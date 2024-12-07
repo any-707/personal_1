@@ -43,7 +43,7 @@ margin-top:50px;
 
     #message {
 color: floralwhite;    
-font-size: 200px;
+font-size: 400px;
 font-family:lights,fantasy,sans-serif;
 
         }
@@ -155,7 +155,7 @@ MEDIA QUERIES!!!!!!!!!!!!
     }
 
     #message {
-        font-size: 90px;
+        font-size: 300px;
     }
 
     body {
@@ -170,7 +170,7 @@ MEDIA QUERIES!!!!!!!!!!!!
     }
 
     #message {
-        font-size: 100px;
+        font-size: 500px;
     }
 
     body {
