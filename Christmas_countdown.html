@@ -29,7 +29,8 @@
     <div id="message"> Until Christmas</div>
 
     <script src="script.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.min.js"></script>
+
  <div id="snow-container"></div>
 
 
@@ -52,13 +53,21 @@
         const now = new Date().getTime();
         const timeLeft = targetDate - now;
 
-        if (timeLeft <= 0) {
-            $("#message").text("Merry Christmas!");
+             if (timeLeft <= 0) {
+            // Stop the countdown
+            clearInterval(interval);
+
+            // Update the message
+            $("#message").text("🎄 Merry Christmas! 🎁");
+
+            // Clear the countdown
             $("#countdown").text("");
-            clearInterval(interval); // Stop the countdown once the target date is reached
+
+            // Launch confetti
+            launchConfetti();
+
             return;
         }
-
         // Calculate time components
         const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -90,6 +99,33 @@
         secondsNumberElement.addClass("bounce");
     }
 
+    // Function to launch confetti
+    function launchConfetti() {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { x: 0.5, y: 0.5 },
+            colors: ['#ff0000', '#ffffff', '#00ff00'],
+        });
+
+        // Continuous confetti burst
+        const duration = 5000; // 5 seconds
+        const end = Date.now() + duration;
+
+        const interval = setInterval(function () {
+            if (Date.now() > end) {
+                clearInterval(interval);
+            } else {
+                confetti({
+                    particleCount: 50,
+                    spread: 120,
+                    origin: { x: Math.random(), y: Math.random() - 0.2 },
+                });
+            }
+        }, 250); // Burst every 250ms
+    }
+
+    
     // Initial update
     updateCountdown();
 
