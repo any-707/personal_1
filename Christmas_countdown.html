@@ -82,13 +82,13 @@
             $("#message").text("FOR CHRISTMAS");
             $("#countdown").html(`${formatUnit(days, 'day')}, ${formatUnit(hours, 'hour')}, ${formatUnit(minutes, 'minute')}, <span class="seconds"><span class="seconds-number">${seconds}</span> seconds</span>`);
         } else if (hours > 0) {
-            $("#message").text("Hours left until");
+            $("#message").text("Hours left  Until Christmas");
             $("#countdown").html(`${formatUnit(hours, 'hour')}, ${formatUnit(minutes, 'minute')}, <span class="seconds"><span class="seconds-number">${seconds}</span> seconds</span>`);
         } else if (minutes > 0) {
-            $("#message").text("Minutes left until");
+            $("#message").text("Minutes left  Until Christmas");
             $("#countdown").html(`${formatUnit(minutes, 'minute')}, <span class="seconds"><span class="seconds-number">${seconds}</span> seconds</span>`);
         } else {
-            $("#message").text("Seconds left until");
+            $("#message").text("Seconds left  Until Christmas");
             $("#countdown").html(`<span class="seconds"><span class="seconds-number">${seconds}</span> seconds</span>`);
         }
 
