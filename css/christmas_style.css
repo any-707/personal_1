@@ -14,12 +14,12 @@
 
 html {
  height: 100%;
-  background-color: red; /* For browsers that do not support gradients */
+  background-color: #83befc; /* For browsers that do not support gradients */
   background-image: linear-gradient( 
-#801919,
-#d15252,
-#71906e,      
-#44a667 
+#c1dbf7,
+#a4cffc,
+#83befc,      
+#62aefc 
   );   
 }
 
@@ -186,3 +186,4 @@ MEDIA QUERIES!!!!!!!!!!!!
     
     
     
+
